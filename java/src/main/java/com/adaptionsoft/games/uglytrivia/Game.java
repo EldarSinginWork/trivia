@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Game {
     List<Player> players = new ArrayList<>();
-    int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
 
@@ -33,7 +32,6 @@ public class Game {
 
 	public boolean add(String playerName) {
 	    players.add(new Player(playerName));
-	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 	    
@@ -57,12 +55,11 @@ public class Game {
 				isGettingOutOfPenaltyBox = true;
 				
 				System.out.println(currentPlayer + " is getting out of the penalty box");
-				places[currentPlayerIndex] = places[currentPlayerIndex] + roll;
-				if (places[currentPlayerIndex] > 11) places[currentPlayerIndex] = places[currentPlayerIndex] - 12;
-				
+				currentPlayer.movePlayer(roll);
+
 				System.out.println(currentPlayer.getName()
 						+ "'s new location is " 
-						+ places[currentPlayerIndex]);
+						+ currentPlayer.getPlace());
 				System.out.println("The category is " + currentCategory());
 				askQuestion();
 			} else {

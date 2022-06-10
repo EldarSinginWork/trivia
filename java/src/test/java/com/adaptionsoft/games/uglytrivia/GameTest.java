@@ -19,6 +19,19 @@ class GameTest {
     }
 
     @Test
+    public void shouldFailIfTooManyPlayers() {
+        Game aGame = new Game();
+
+        aGame.add("Pat1");
+        aGame.add("Pat2");
+        aGame.add("Pat3");
+        aGame.add("Pat4");
+        aGame.add("Pat5");
+        aGame.add("Pat6");
+        aGame.add("Pat7");
+    }
+
+    @Test
     public void shouldWin_afterSixCorrectAnswers() {
         Game aGame = new Game();
 
