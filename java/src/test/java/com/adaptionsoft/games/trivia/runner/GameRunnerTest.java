@@ -16,7 +16,6 @@ class GameRunnerTest {
 
   @Test
   void main() {
-
     String outputFile = "output.txt";
     try(FileOutputStream outputStream = new FileOutputStream(outputFile)) {
       System.setOut(new PrintStream(outputStream));
